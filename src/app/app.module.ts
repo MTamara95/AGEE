@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +26,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-ddukb8xht5e0pwox.us.auth0.com',
+      clientId: 'sWpLt5A963HNJ6Jx0wq6r2AwDzje8cVd',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
