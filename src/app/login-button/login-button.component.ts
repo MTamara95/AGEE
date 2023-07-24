@@ -7,9 +7,9 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login-button.component.css']
 })
 export class LoginButtonComponent {
-  constructor(private auth: AuthService) {}
+  // constructor(private auth: AuthService) {}
 
   login() {
-    this.auth.loginWithRedirect();
+    // this.auth.loginWithRedirect();
   }
 }
