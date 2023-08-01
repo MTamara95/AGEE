@@ -17,8 +17,10 @@ WORKDIR /usr/share/nginx/html
 # Copy the built Angular app from the build stage
 COPY --from=build /app/dist/gui .
 
+COPY ./localhost.pem /etc/nginx/ssl/cert.pem
+COPY ./localhost-key.pem /etc/nginx/ssl/key.pem
+
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY ssl /etc/nginx/ssl
 
 EXPOSE 80
 EXPOSE 443
