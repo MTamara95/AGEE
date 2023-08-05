@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LdapService } from 'src/services/ldap.service';
+import { CredentialsService } from 'src/services/credentials.service';
 
 @Component({
   selector: 'app-login-button',
@@ -7,12 +8,18 @@ import { LdapService } from 'src/services/ldap.service';
   styleUrls: ['./login-button.component.css']
 })
 export class LoginButtonComponent {
-  constructor(private ldapService: LdapService) {}
+  constructor(private ldapService: LdapService, private credentialsService: CredentialsService) {}
 
   async login() {
-    const searchResult = await this.ldapService.search('tamara.marcetic', 'Monkey@55~14', 'avisto-eastern.com');
-    
-    // console.log(searchResult.searchEntries[0].mail);
-    // console.log(searchResult.searchEntries[0].memberOf)
+    const searchResult = await this.ldapService.search(
+      this.credentialsService.username,
+      this.credentialsService.password,
+      'avisto-eastern.com'//set -> USERDNSDOMAIN
+      );
+
+    // buffer, buffer[], string, string[] -> string...
+    // pa iz stringa parsirati
+    console.log(searchResult.searchEntries[0].mail);
+    console.log(searchResult.searchEntries[0].memberOf)
   }
 }

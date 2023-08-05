@@ -14,11 +14,6 @@ export class LdapService {
     const body = {username, password, domain};
     try{
       const searchResult = await this.http.post<any>(this.apiUrl, body).toPromise();
-      // buffer, buffer[], string, string[] -> string...
-      // pa iz stringa parsirati
-      console.log(searchResult.searchEntries[0].mail);
-      console.log(searchResult.searchEntries[0].memberOf)
-      
       return searchResult;
     }
     catch(error){
