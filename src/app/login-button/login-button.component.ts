@@ -13,8 +13,7 @@ export class LoginButtonComponent {
   async login() {
     const searchResult = await this.ldapService.search(
       this.credentialsService.username,
-      this.credentialsService.password,
-      'avisto-eastern.com'//set -> USERDNSDOMAIN
+      this.credentialsService.password
       );
 
     // buffer, buffer[], string, string[] -> string...

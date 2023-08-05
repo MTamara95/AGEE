@@ -10,8 +10,8 @@ export class LdapService {
   constructor(private http: HttpClient) { 
   }
 
-  async search(username: string, password: string, domain: string){
-    const body = {username, password, domain};
+  async search(username: string, password: string){
+    const body = {username, password};
     try{
       const searchResult = await this.http.post<any>(this.apiUrl, body).toPromise();
       return searchResult;
