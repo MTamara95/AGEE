@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { LdapService } from 'src/services/ldap.service';
 
 @Component({
   selector: 'app-login-button',
@@ -7,9 +7,12 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login-button.component.css']
 })
 export class LoginButtonComponent {
-  constructor(private auth: AuthService) {}
+  constructor(private ldapService: LdapService) {}
 
-  login() {
-    this.auth.loginWithRedirect();
+  async login() {
+    const searchResult = await this.ldapService.search('tamara.marcetic', 'Monkey@55~14', 'avisto-eastern.com');
+    
+    // console.log(searchResult.searchEntries[0].mail);
+    // console.log(searchResult.searchEntries[0].memberOf)
   }
 }
