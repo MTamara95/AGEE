@@ -12,12 +12,16 @@ import { CredentialsComponent } from './credentials/credentials.component';
 import { LoginButtonComponent } from './login-button/login-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SuccessComponent } from './success/success.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CredentialsComponent,
-    LoginButtonComponent
+    LoginButtonComponent,
+    SuccessComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

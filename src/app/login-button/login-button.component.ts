@@ -4,6 +4,7 @@ import { CredentialsService } from 'src/services/credentials.service';
 import { EmployeeInterface } from 'src/models/employee.interface';
 import { UtilClass } from 'src/util.class';
 import { UNSUCCESSFUL_AUTHENTICATION_ERROR_MESSAGE } from 'src/consts/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-button',
@@ -11,7 +12,7 @@ import { UNSUCCESSFUL_AUTHENTICATION_ERROR_MESSAGE } from 'src/consts/constants'
   styleUrls: ['./login-button.component.css']
 })
 export class LoginButtonComponent {
-  constructor(private ldapService: LdapService, private credentialsService: CredentialsService) {}
+  constructor(private ldapService: LdapService, private credentialsService: CredentialsService, private router: Router) {}
 
   async login() {
     const employee: EmployeeInterface | null = await this.ldapService.search(this.credentialsService.username, this.credentialsService.password);
@@ -22,7 +23,8 @@ export class LoginButtonComponent {
     else{
       const emailAddress: string = UtilClass.convertLdapSearchResultToString(employee?.emailAddress);
       const role: string = UtilClass.convertLdapSearchResultToString(employee?.role);
-      alert(`email: ${emailAddress}, role: ${role}`);
+      
+      this.router.navigate([`/success`, emailAddress, role]);
     }
   }
 }
