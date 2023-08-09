@@ -1,14 +1,4 @@
 services:
-  ldap-service:
-    build:
-      context: ../ldapService
-      dockerfile: Dockerfile
-      args:
-        DOMAIN: ${USERDNSDOMAIN}
-    image: ldap-service
-    container_name: ldap-service
-    ports:
-      - 3000:3000
   angular-app:
     build:
       context: .
