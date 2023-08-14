@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SuccessComponent } from './success/success.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientTestingModule
+    HttpClientModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
