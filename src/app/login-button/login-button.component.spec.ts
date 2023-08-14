@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginButtonComponent } from './login-button.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginButtonComponent', () => {
   let component: LoginButtonComponent;
@@ -8,6 +9,7 @@ describe('LoginButtonComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [LoginButtonComponent]
     });
     fixture = TestBed.createComponent(LoginButtonComponent);
