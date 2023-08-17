@@ -1,1 +1,1 @@
-export const environment = {production: true, link: "http://prod", name: "production environment"};
+export const environment = {production: true, link: "http://192.168.50.108", name: "production environment"};
