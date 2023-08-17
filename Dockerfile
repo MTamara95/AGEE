@@ -8,7 +8,7 @@ COPY . /app
 
 RUN npm install
 
-RUN npm run build:${ENV}
+RUN npm run build${ENV}
 
 # Stage 2: Serve Application using Nginx Server with HTTPS
 FROM nginx:alpine

@@ -1,1 +1,1 @@
-export const environment = {production: false, link: "http://172.17.235.138", name: "qa environment"};
+export const environment = {production: false, link: "http://172.28.151.219", name: "qa environment"};
