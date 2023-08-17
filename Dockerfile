@@ -1,13 +1,14 @@
 # Stage 1: Build Angular app
 FROM node:16-alpine AS build
 
+ARG ENV
 WORKDIR /app
 
 COPY . /app
 
 RUN npm install
 
-RUN npm run build
+RUN npm run build:${ENV}
 
 # Stage 2: Serve Application using Nginx Server with HTTPS
 FROM nginx:alpine

@@ -1,0 +1,1 @@
+export const environment = {production: true, link: "http://prod", name: "production environment"};
