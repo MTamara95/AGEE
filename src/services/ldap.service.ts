@@ -15,7 +15,7 @@ export class LdapService {
     const body = {username, password};
     alert(environment.link);
     try{
-      const employee: Promise<EmployeeInterface> = await this.http.post<any>(environment.link + API_URL, body).toPromise();
+      const employee: EmployeeInterface = {'emailAddress': 'test email', 'role': 'test role'};// Promise<EmployeeInterface> = await this.http.post<any>(environment.link + API_URL, body).toPromise();
       return employee;
     }
     catch(error){
